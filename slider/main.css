@@ -1,0 +1,27 @@
+.slider{
+  position: relative;
+}
+
+img{
+    width:800px;
+    height:400px;
+}
+
+#next,#prev{
+    position: absolute;
+    padding: 16px;
+    font-size: 25px;
+    font-weight: 900;
+    top:42%;
+    color: white;
+}
+
+#next:hover,#prev:hover{
+    background-color: dimgrey;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+#next{
+ right:0px;
+}
