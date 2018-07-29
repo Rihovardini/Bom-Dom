@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>loadmapasyncHTML</title>
-        <style type='text/css'>body{margin:0;padding:0;overflow:hidden;font-family:'Segoe UI',Helvetica,Arial,Sans-Serif}</style>
-        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-        <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AnpHZeNOBe_CFo-tHVImc1gFpyXWRaud4O_hgNr3lVhqASzkxCCZLpj27xD-Dwlq'></script>
-        <script src="main.js"></script>
-    </head>
-    <body onload='loadMapScenario();'>
-        <div id='printoutPanel'></div>
-        
-        <div id='myMap' style='width: 800px; height: 600px; margin:0 auto;'></div>
-    </body>
+<body>
+
+<h2>Hey, I want you to click this button to know your coords.</h2>
+
+<button onclick="getCurrentLocation()">Try It</button>
+
+<div id="mapholder"></div>
+
+<script src="main.js"></script>
+</body>
 </html>

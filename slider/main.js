@@ -8,23 +8,24 @@ let slides=[],
 
 if(localStorage.getItem("slideInf")!==null){
     let slideInf=localStorage.getItem("slideInf");
-    slideInf=JSON.parse(slideInf);
-    console.log(slideInf);
+    slideInf=JSON.parse(slideInf)
     img.setAttribute("src",slideInf.slide);
     img.setAttribute('data-count',slideInf.count);
 
 }else{
     img.setAttribute('src',slides[0]);
     img.setAttribute('data-count',1);
+    location.hash=slides[0];
 }
 
 function nextSlide(){
     let count=+(img.getAttribute("data-count"));
-        if(count==4){
+        if(count==slides.length){
             count=0;
         }
         img.setAttribute('src',slides[count]);
         img.setAttribute('data-count',count+1);
+        location.hash=slides[count];
         let slideInf={
             slide:slides[count],
             count:count+1
@@ -34,11 +35,12 @@ function nextSlide(){
 function prevSlide(){
     let count=img.getAttribute("data-count");
         if(count==1){
-            count=5;
+            count=slides.length+1;
         };
         --count;
         img.setAttribute('src',slides[count-1]);
         img.setAttribute('data-count',count);
+        location.hash=slides[count-1];
         let slideInf={
             slide:slides[count-1],
             count:count
@@ -46,9 +48,23 @@ function prevSlide(){
         localStorage.setItem("slideInf",JSON.stringify(slideInf));
         
 }
-setInterval(nextSlide,6000);
+function changeElementByHash(){
+    let hash=location.hash.slice(1),
+        count=slides.indexOf(hash);
+        if(!hash){
+            img.setAttribute('src',slides[0]);
+            img.setAttribute('data-count',1);
+            location.hash=slides[0];
+        }
+    img.setAttribute('src',slides[count]);
+    img.setAttribute('data-count',count+1);
+}
+//setInterval(nextSlide,6000);
 
-let next=document.getElementById("next");
-let prev=document.getElementById("prev");
+let next=document.getElementById("next"),
+    prev=document.getElementById("prev");
     next.addEventListener('click',nextSlide);
     prev.addEventListener('click',prevSlide);
+
+window.addEventListener('hashchange',changeElementByHash);
+window.addEventListener('load',changeElementByHash);
