@@ -6,7 +6,9 @@ window.onload=function() {
         let latLon = position.coords.latitude + "," + position.coords.longitude;
         let imgUrl = "https://maps.googleapis.com/maps/api/staticmap?center="
         +latLon+"&zoom=18&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
-        document.getElementById("mapholder").innerHTML = "<img src='"+imgUrl+"'>";
+        let img=document.createElement('img');
+        img.setAttribute('src',imgUrl);
+        document.getElementById("mapholder").appendChild(img);
     }
 
 
