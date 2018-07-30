@@ -18,7 +18,7 @@ if(localStorage.getItem("slideInf")!==null){
     location.hash=slides[0];
 }
 
-function nextSlide(){
+function nextSlide(){ 
     let count=+(img.getAttribute("data-count"));
         if(count==slides.length){
             count=0;
