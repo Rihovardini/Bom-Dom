@@ -1,15 +1,13 @@
-
-function getCurrentLocation() {
+window.onload=function() {
         navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-function showPosition(position) {
-    let latLon = position.coords.latitude + "," + position.coords.longitude;
-    let imgUrl = "https://maps.googleapis.com/maps/api/staticmap?center="
-    +latLon+"&zoom=18&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
-    document.getElementById("mapholder").innerHTML = "<img src='"+imgUrl+"'>";
-}
-
+    function showPosition(position) {
+        let latLon = position.coords.latitude + "," + position.coords.longitude;
+        let imgUrl = "https://maps.googleapis.com/maps/api/staticmap?center="
+        +latLon+"&zoom=18&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
+        document.getElementById("mapholder").innerHTML = "<img src='"+imgUrl+"'>";
+    }
 
 
 
